@@ -1,0 +1,23 @@
+#main {
+  padding: 5%;
+  background-color: #004aad !important;
+  text-align: center !important;
+}
+
+nav li {
+  font: "Times New Roman";
+}
+
+.nav-brand {
+  font-family: "Poppins", "Sans-Serif";
+  font-weight: 500;
+  font-size: 50px;
+}
+
+nav li a:hover {
+  text-shadow: 4px 4px 20px #6c6c6c;
+}
+
+.dropdown-menu {
+  margin-left: -90px !important;
+}
