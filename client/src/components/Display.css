@@ -1,4 +1,17 @@
-a {
-  text-decoration: none;
-  color: #fff;
+.image-list-item {
+  grid-row: span 1;
+  grid-column: span 1;
+  margin: 20px;
+  padding: 0;
+  position: relative;
+  width: 20%;
+  height: auto;
+}
+
+.image-list {
+  padding: 50px;
+}
+
+#get-data-form {
+  margin: 50px;
 }
