@@ -1,8 +1,8 @@
 # Dependency directories
-node_modules/
+node_modules
 
 # Hardhat files
-artifacts/
+client/src/artifacts/
 cache/
 
 # Environment files
@@ -13,4 +13,11 @@ cache/
 *.iml
 .vscode/
 
+# System generated files
 .DS_Store
+
+# Typescript files
+typechain-types/
+
+#deployments
+ignition/deployments
