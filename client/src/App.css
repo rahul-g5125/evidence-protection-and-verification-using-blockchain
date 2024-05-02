@@ -1,9 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 body {
   font-family: "Helvetica";
+  min-height: 100vh;
+  height: 100vh;
   margin: 0;
   padding: 0;
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(215, 223, 252, 1) 0%,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(215, 223, 252, 1) 84%
+  );
 }
 
 h1 {
   text-align: center;
+}
+
+.title {
+  font-family: "Montserrat";
 }

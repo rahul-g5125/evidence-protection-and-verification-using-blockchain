@@ -1,23 +1,26 @@
 import * as React from "react";
 import "./Navbar.css";
 import logo from "../images/logo.png";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Typography from "@mui/material/Typography";
-import Menu from "@mui/material/Menu";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  Container,
+  Avatar,
+  Button,
+  Tooltip,
+  MenuItem,
+} from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import Tooltip from "@mui/material/Tooltip";
-import MenuItem from "@mui/material/MenuItem";
 
 const pages = [
   { page: "Verification", path: "/verification" },
   { page: "About", path: "/about" },
-  { page: "Contact Support", path: "/contact" },
+  { page: "Support", path: "/contact" },
+  { page: "Evidence", path: "/evidence" },
 ];
 const settings = ["Profile", "Account", "Dashboard", "Logout"];
 
@@ -45,7 +48,7 @@ function ResponsiveAppBar() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={{ backgroundColor: "#008DDA" }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <a href="/">
@@ -84,6 +87,7 @@ function ResponsiveAppBar() {
               {pages.map((page) => (
                 <MenuItem key={page.page} onClick={handleCloseNavMenu}>
                   <Button
+                    sx={{ Capitalized: "none", color: "black" }}
                     onClick={() => {
                       window.location.href = page.path;
                     }}
@@ -97,14 +101,14 @@ function ResponsiveAppBar() {
 
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map((page) => (
-              <Button
+              <a
+                className="nav-link"
                 key={page.page}
                 href={page.path}
                 onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: "white", display: "block" }}
               >
                 {page.page}
-              </Button>
+              </a>
             ))}
           </Box>
 

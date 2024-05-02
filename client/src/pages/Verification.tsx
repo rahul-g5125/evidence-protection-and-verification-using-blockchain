@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { Input, Button, Box, Stack, Alert, ListClassKey } from "@mui/material";
-import CheckIcon from "@mui/icons-material/Check";
+import { Input, Button, Box, Stack } from "@mui/material";
 import Navbar from "../components/Navbar";
 import { ethers, BrowserProvider } from "ethers";
 import Authenticity from "../artifacts/contracts/Authenticity.sol/Authenticity.json";
@@ -29,7 +28,7 @@ export default function Verification() {
         const signer = await provider.getSigner();
         const address = (await signer).address;
         setAccount(address);
-        const contractAddress = "0xDc64a140Aa3E981100a9becA4E685f962f0cF6C9";
+        const contractAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
 
         const contract = new ethers.Contract(
           contractAddress,

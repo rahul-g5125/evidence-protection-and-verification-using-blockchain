@@ -3,7 +3,8 @@ import axios from "axios";
 import { ethers } from "ethers";
 import { Upload } from "../../../typechain-types";
 import { styled } from "@mui/material/styles";
-import { Button } from "@mui/material";
+import "./FileUpload.css";
+import { Button, Typography } from "@mui/material";
 import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 
 interface props {
@@ -34,29 +35,31 @@ const FileUpload = (props: props) => {
         const formData = new FormData();
         formData.append("file", file);
 
-        const resFile = await axios({
-          method: "post",
-          url: "https://api.pinata.cloud/pinning/pinFileToIPFS",
-          data: formData,
-          headers: {
-            pinata_api_key: import.meta.env.VITE_API_KEY,
-            pinata_secret_api_key: import.meta.env.VITE_API_SECRET,
-            "Content-Type": "multipart/form-data",
-          },
-        });
+        const resFile = await axios.post(
+          "https://api.pinata.cloud/pinning/pinFileToIPFS",
+          formData,
+          {
+            headers: {
+              pinata_api_key: import.meta.env.VITE_API_KEY,
+              pinata_secret_api_key: import.meta.env.VITE_API_SECRET,
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+        console.log(resFile.data.IpfsHash);
         const ImgHash = `https://brown-patient-penguin-941.mypinata.cloud/ipfs/${resFile.data.IpfsHash}`;
-        const response = await props.contract.add(props.account, ImgHash);
+        const response = await props.contract.add(
+          props.account.toString(),
+          ImgHash
+        );
         console.log(response);
         alert("Successfully Image Uploaded");
         setFileName("No image selected");
         setFile(null);
       } catch (e) {
-        alert("Unable to upload image to Pinata");
+        alert(e);
       }
     }
-    alert("Successfully Image Uploaded");
-    setFileName("No image selected");
-    setFile(null);
   };
   const retrieveFile = (e: FormEvent) => {
     const data = (e.target as HTMLInputElement).files?.[0]; //files array of files object
@@ -85,6 +88,7 @@ const FileUpload = (props: props) => {
           id="file-upload"
           variant="contained"
           tabIndex={-1}
+          sx={{ backgroundColor: "#008DDA" }}
           startIcon={<CloudUploadIcon />}
         >
           Choose Image
@@ -94,11 +98,14 @@ const FileUpload = (props: props) => {
             type="file"
           />
         </Button>
-        <span className="textArea">Image: {fileName}</span>
+        <Typography sx={{ margin: 2 }} className="textArea">
+          Image: {fileName}
+        </Typography>
         <Button
           variant="contained"
           type="submit"
           className="upload"
+          sx={{ backgroundColor: "#008DDA " }}
           disabled={!file}
         >
           Upload File

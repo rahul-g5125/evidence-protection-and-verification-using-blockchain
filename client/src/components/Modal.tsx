@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { Upload } from "../../../typechain-types";
 import { Dialog, Box, Typography, TextField, Button } from "@mui/material";
+import "./Modal.css";
 
 interface props {
   setModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -38,19 +39,37 @@ const Modal = (props: props) => {
         onClose={() => {
           props.setModalOpen(false);
         }}
+        sx={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
       >
-        <Box sx={{ padding: "50px", textAlign: "center" }}>
+        <Box
+          sx={{
+            padding: "50px",
+            textAlign: "center",
+            backgroundImage:
+              "radial-gradient(circle farthest-corner at 10% 20%,rgba(215, 223, 252, 1) 0%,rgba(255, 255, 255, 1) 0%,rgba(215, 223, 252, 1) 84%)",
+          }}
+        >
           <div className="modalBackground">
             <div className="modalContainer">
               <Typography
-                sx={{ margin: "20px" }}
+                sx={{ margin: "20px", fontWeight: "bold" }}
                 variant="h4"
                 className="title"
               >
                 Share with
               </Typography>
               <div className="body">
-                <TextField id="address" placeholder="Enter Address"></TextField>
+                <TextField
+                  id="address"
+                  placeholder="Enter Address"
+                  sx={{ width: "400px", backgroundColor: "white" }}
+                ></TextField>
               </div>
               <form id="myForm">
                 <select id="selectNumber">
@@ -64,6 +83,7 @@ const Modal = (props: props) => {
                     props.setModalOpen(false);
                   }}
                   id="cancelBtn"
+                  sx={{ marginRight: "10px" }}
                 >
                   Cancel
                 </Button>

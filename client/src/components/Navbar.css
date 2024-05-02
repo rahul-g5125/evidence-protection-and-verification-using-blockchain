@@ -1,7 +1,16 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
 #logo {
-  height: 75px;
+  height: 40px;
   width: auto;
   border-radius: 20px;
   margin: 15px 0;
   margin-right: 15px;
+}
+
+.nav-link {
+  display: block;
+  margin: 0 20px;
+  color: white;
+  text-decoration: none;
 }

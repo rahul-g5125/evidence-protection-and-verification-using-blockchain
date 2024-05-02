@@ -57,7 +57,11 @@ const Display = (props: props) => {
       <div id="get-data-form">
         <TextField
           type="text"
-          sx={{ height: "60px", margin: "10px" }}
+          sx={{
+            height: "20px",
+            width: "500px",
+            margin: "10px",
+          }}
           placeholder="Enter Address"
           id="addressOfOther"
         ></TextField>

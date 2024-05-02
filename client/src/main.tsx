@@ -4,6 +4,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import App from "./App.tsx";
 import "./index.css";
 import Verification from "./pages/Verification.tsx";
+import Evidence from "./pages/Evidence.tsx";
 
 const router = createBrowserRouter([
   {
@@ -14,6 +15,10 @@ const router = createBrowserRouter([
     path: "/verification",
     element: <Verification />,
   },
+  { path: "/about", element: <div>About</div> },
+  { path: "/contact", element: <div>Contact</div> },
+  { path: "/profile", element: <div>Profile</div> },
+  { path: "/evidence", element: <Evidence /> },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

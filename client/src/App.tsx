@@ -5,10 +5,9 @@ import "./App.css";
 import { useState, useEffect } from "react";
 import { BrowserProvider, ethers } from "ethers";
 import FileUpload from "./components/FileUpload";
-import Display from "./components/Display";
 import Modal from "./components/Modal";
 import { MetaMaskInpageProvider } from "@metamask/providers";
-import { Button, Box } from "@mui/material";
+import { Button, Box, Typography } from "@mui/material";
 
 declare global {
   interface Window {
@@ -60,11 +59,14 @@ function App() {
   return (
     <>
       <Navbar />
-      <Box sx={{ textAlign: "center" }}>
+      <Box className="main">
         {!modalOpen && (
           <Button
             variant="contained"
-            sx={{ margin: "10px" }}
+            sx={{
+              margin: "10px",
+              backgroundColor: "#008DDA",
+            }}
             className="share"
             onClick={() => setModalOpen(true)}
           >
@@ -78,12 +80,27 @@ function App() {
         )}
 
         <div className="App">
-          <h1>Store your Sensitive Pieces of Evidence here.</h1>
+          <Typography
+            variant="h3"
+            className="title"
+            sx={{
+              fontFamily: "Montserrat",
+              fontWeight: "bold",
+              width: "60%",
+              marginX: "auto",
+              marginY: "50px",
+              textAlign: "center",
+            }}
+          >
+            Store your Sensitive Pieces of Evidence here.
+          </Typography>
           <div className="bg"></div>
           <div className="bg bg2"></div>
           <div className="bg bg3"></div>
 
-          <p>Account : {account ? account : "Not connected"}</p>
+          <Typography sx={{ textAlign: "center", marginBottom: "20px" }}>
+            Account : {account ? account : "Not connected"}
+          </Typography>
           <FileUpload
             account={account}
             provider={provider!}
@@ -91,9 +108,6 @@ function App() {
             // @ts-ignore
             contract={contract!}
           ></FileUpload>
-          {/* // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        @ts-ignore */}
-          <Display account={account} contract={contract!}></Display>
         </div>
       </Box>
     </>
