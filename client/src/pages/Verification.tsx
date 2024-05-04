@@ -28,7 +28,7 @@ export default function Verification() {
         const signer = await provider.getSigner();
         const address = (await signer).address;
         setAccount(address);
-        const contractAddress = "0xCf7Ed3AccA5a467e9e704C703E8D87F634fB0Fc9";
+        const contractAddress = "0x84c4B0310cA6EaDf010881A71BC62aCc32560d83";
 
         const contract = new ethers.Contract(
           contractAddress,

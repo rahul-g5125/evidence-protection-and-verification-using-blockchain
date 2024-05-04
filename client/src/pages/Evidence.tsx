@@ -29,7 +29,7 @@ const Evidence = () => {
         const signer = await provider.getSigner();
         const address = (await signer).address;
         setAccount(address);
-        const contractAddress = "0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0";
+        const contractAddress = "0xb171b4f0990FA377B72ec27D1543F3034fF821BE";
 
         const contract = new ethers.Contract(
           contractAddress,
